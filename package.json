@@ -1,0 +1,22 @@
+{
+  "name": "mini-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cifeng1989/mini-map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cifeng1989/mini-map/issues"
+  },
+  "homepage": "https://github.com/cifeng1989/mini-map#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
