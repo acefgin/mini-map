@@ -19,17 +19,17 @@ $(function() {
         });
 
         $.ajax({
-            url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+            url: '/places-info',
             data: {
-                'location': position.lat + ',' + position.lng,
                 'type': 'restaurant',
-                'key': GOOGLE_API_KEY,
+                'lat': position.lat,
+                'lng': position.lng,
                 'radius': 500
             },
-            success: function() {
+            success: function(data) {
                 debugger;
             },
-            failure: function() {
+            failure: function(err) {
                 debugger;
             }
         });
