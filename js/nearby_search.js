@@ -2,6 +2,9 @@ $(function() {
     var DEFAULT_ZOOM = 15;
     var GOOGLE_API_KEY = 'AIzaSyBT4qUFTmu7ocLrzO83DK4eCpMMWxXtay4';
 
+    var current_infowindow;
+    var markers_shown;
+
     function initMap() {
         var position = {
             lat: 47.620491, 
@@ -32,7 +35,7 @@ $(function() {
         var params = {
             'location': new google.maps.LatLng(position.lat, position.lng),
             'radius': 500,
-            'type': 'restaurant'
+            'keyword': 'space needle'
         };
         getNearByPlaces(map, params);
         
@@ -67,10 +70,17 @@ $(function() {
     };
 
     function getNearByPlaces(map, params) {
+        if (markers_shown) {
+            _.each(markers_shown, function(marker) {
+                marker.setMap(null);
+            });
+        }
+        markers_shown = [];
+        
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch(params, function(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-               var current_infowindow;
+
                 _.each(results, function(place) {
                     var marker = new google.maps.Marker({
                         position: {
@@ -97,6 +107,8 @@ $(function() {
                         showDetailedInfo(place);
                         map.setOptions({'mapTypeControl': false});
                     });
+
+                    markers_shown.push(marker);
                 }); 
             }
         });
