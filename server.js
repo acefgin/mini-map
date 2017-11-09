@@ -15,5 +15,5 @@ app.get('/nearbysearch', function(req, res) {
  app.use('/js', express.static('js'))
 
 app.listen(PORT, function() {
-    console.log('app started on port' + PORT + '!');
+    console.log('app started on port ' + PORT + '!');
 });
