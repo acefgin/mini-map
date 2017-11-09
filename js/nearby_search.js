@@ -69,6 +69,7 @@ $(function() {
 
         $('.place-info-visibility-toggle').on('click', function() {
             $('#place-info-wrapper').toggleClass('visible');
+            $('#place-infor-wrapper .triangle-icon').toggleClass('left');
         });
     };
     

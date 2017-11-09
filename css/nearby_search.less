@@ -17,11 +17,10 @@ html {
             background-color: #4285F4;
             position: absolute;
             top: 0;
-            left: 0;
-            display: none;
+            left: -408px;
 
             &.visible {
-                display: block;
+                left: 0;
             }
 
             #hero-header-wrapper {
@@ -72,7 +71,6 @@ html {
             }
 
             .place-info-visibility-toggle {
-                contect: "<";
                 width: 23px;
                 height: 48px;
                 position: absolute;
@@ -85,6 +83,19 @@ html {
                 box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
                 top: 8px;
                 outline: none;
+
+                .triangle-icon {
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    border-left: 7px solid rgba(0, 0, 0, 0.7);
+
+                    &.left {
+                        border-left: 0;
+                        border-right: 7px solid rgba(0, 0, 0, 0.7);
+                    }
+                }
             }
         }
     }

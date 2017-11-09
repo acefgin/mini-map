@@ -15,11 +15,10 @@ html body #place-info-wrapper {
   background-color: #4285F4;
   position: absolute;
   top: 0;
-  left: 0;
-  display: none;
+  left: -408px;
 }
 html body #place-info-wrapper.visible {
-  display: block;
+  left: 0;
 }
 html body #place-info-wrapper #hero-header-wrapper {
   width: 100%;
@@ -59,7 +58,6 @@ html body #place-info-wrapper #place-basic-info-wrapper #place-basic-info .info-
   text-transform: capitalize;
 }
 html body #place-info-wrapper .place-info-visibility-toggle {
-  contect: "<";
   width: 23px;
   height: 48px;
   position: absolute;
@@ -72,4 +70,15 @@ html body #place-info-wrapper .place-info-visibility-toggle {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
   top: 8px;
   outline: none;
+}
+html body #place-info-wrapper .place-info-visibility-toggle .triangle-icon {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid rgba(0, 0, 0, 0.7);
+}
+html body #place-info-wrapper .place-info-visibility-toggle .triangle-icon.left {
+  border-left: 0;
+  border-right: 7px solid rgba(0, 0, 0, 0.7);
 }
