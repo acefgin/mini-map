@@ -35,6 +35,7 @@ app.get('/places-info', function(req, api_res) {
 
 app.use('/css', express.static('css'))
 app.use('/js', express.static('js'))
+app.use('/assets', express.static('assets'))
 
 app.listen(PORT, function() {
     console.log('app started on port ' + PORT + '!');
