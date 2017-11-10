@@ -80,11 +80,11 @@ $(function() {
             var rating = parseFloat(place['rating']).toFixed(1);
 
             $('.place-review-score').text(rating);
-            for (i = 0; i < Math.round(rating); i++) {
-                $('.place-review-stars-wrapper').append('<div class="star-icon"></div>');
+            for (i = 0; i < Math.floor(rating); i++) {
+                $('.place-review-stars-wrapper').append('<i class="material-icons" style="font-size:14px">star</i>');
             }
-            if (rating % 1 && rating % 1 < 0.5) {
-                $('.place-review-stars-wrapper').append('<div class="half-star-icon"></div>');
+            if (rating % 1 && rating % 1 > 0.5) {
+                $('.place-review-stars-wrapper').append('<i class="material-icons" style="font-size:14px">star_half</i>');
             }
             $('.place-type').text(place['types'][0]);
             $('#place-info-wrapper').addClass('visible');
@@ -95,7 +95,7 @@ $(function() {
                     if (key != 'website') {
                         $('.place-info-details').append(
                             '<div class="place-info-details-row">' + 
-                                '<i class="place-info-details-icon material-icons" style="font-size:24px">' + value + '</i>'+
+                                '<i class="place-info-details-icon material-icons" style="font-size:20px">' + value + '</i>'+
                                 '<div class="place-info-details-description">' + place[key] + '</div>' +
                             '</div>'
                         );
@@ -103,7 +103,7 @@ $(function() {
                     else {
                         $('.place-info-details').append(
                            '<div class="place-info-details-row">' +
-                               '<i class="place-info-details-icon material-icons" style="font-size:24px">' + value + '</i>'+
+                               '<i class="place-info-details-icon material-icons" style="font-size:20px">' + value + '</i>'+
                                '<a class="place-info-details-description" href="' + place[key] + '">Website</a>' +
                            '</div>'
                         );
@@ -114,11 +114,14 @@ $(function() {
             _.each(DEFAULT_DETAIL_INFO_ROWS, function(value, key) {
                 $('.place-info-details').append(
                     '<div class="place-info-details-row">' +
-                        '<i class="place-info-details-icon material-icons" style="font-size:24px">' + key + '</i>'+
+                        '<i class="place-info-details-icon material-icons" style="font-size:20px">' + key + '</i>'+
                         '<div class="place-info-details-description">' + value + '</div>' +
                     '</div>'
                 );
             }, this);
+            
+            $('.loading-view-wrapper').removeClass('visible');
+            $('.place-info-content-wrapper').addClass('visible');
         });
     };
 
@@ -162,6 +165,9 @@ $(function() {
                         
                         $('.place-review-stars-wrapper').empty();
                         $('.place-info-details').empty();
+                        
+                        $('.loading-view-wrapper').addClass('visible');
+                        $('.place-info-content-wrapper').removeClass('visible');
                     });
 
                     markers_shown.push(marker);
